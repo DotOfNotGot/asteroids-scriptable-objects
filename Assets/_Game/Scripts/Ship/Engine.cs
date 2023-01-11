@@ -15,6 +15,9 @@ namespace Ship
 
         private Rigidbody2D _rigidbody;
         
+        
+        
+        
         private void FixedUpdate()
         {
             if (Input.GetKey(KeyCode.UpArrow))

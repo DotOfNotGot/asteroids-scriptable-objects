@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <uie:ObjectField label="Throttle Power" binding-path="_throttlePower" type="Variables.FloatVariable, Assembly-CSharp" />
+    <ui:Slider picking-mode="Ignore" label="Throttle Power" value="5" high-value="10" low-value="0" binding-path="_throttlePowerSimple" direction="Horizontal" inverted="false" show-input-field="true" style="opacity: 1; flex-wrap: nowrap; flex-direction: row;" />
+    <ui:Slider picking-mode="Ignore" label="Rotation Power" value="5" high-value="10" inverted="false" show-input-field="true" binding-path="_rotationPowerSimple" style="align-items: stretch;" />
+</ui:UXML>
