@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Variables;
 
-public class EditorManager : MonoBehaviour
+public class EditorManager
 {
     
     // Engine
@@ -11,19 +12,19 @@ public class EditorManager : MonoBehaviour
     [SerializeField, Range(0, 10f)] private float _throttlePower;
     [SerializeField, Range(0, 10f)] private float _rotationPower;
     
-    [SerializeField] private FloatVariable _throttlePowerObject;
-    [SerializeField] private FloatVariable _rotationPowerObject;
+    [SerializeField] public FloatVariable _throttlePowerObject;
+    [SerializeField] public FloatVariable _rotationPowerObject;
     
     // Hull
 
 
     [SerializeField] private int _health;
     
-    [SerializeField] private IntVariable _healthObject;
+    [SerializeField] public IntVariable _healthObject;
 
     public void AssignValues()
     {
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA yo");
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
         _throttlePowerObject.SetValue(_throttlePower);
         _rotationPowerObject.SetValue(_rotationPower);
         _healthObject.SetValue(_health);

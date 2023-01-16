@@ -224,7 +224,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1808276868}
-  - component: {fileID: 1808276867}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -232,24 +231,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1808276867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808276866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95743ae2d63bff04ab8b8ffe46d8b19a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _throttlePower: 2.2
-  _rotationPower: 0
-  _throttlePowerObject: {fileID: 11400000, guid: beb4542c9c678f14cb3e3a74aead4314, type: 2}
-  _rotationPowerObject: {fileID: 11400000, guid: eb6f17e4493560c4b9750572ccc4f906, type: 2}
-  _health: 0
-  _healthObject: {fileID: 11400000, guid: 40cfb1e1b58e0f84a966e03698c56110, type: 2}
 --- !u!4 &1808276868
 Transform:
   m_ObjectHideFlags: 0

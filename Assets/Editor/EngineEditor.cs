@@ -20,7 +20,7 @@ public class EngineEditor : Editor
         m_UXML.CloneTree(root);
 
 
-        var foldout = new Foldout() { viewDataKey = "EngineFullInspector", text = "Full Inspector" };
+        var foldout = new Foldout() { viewDataKey = "EngineFullInspector", text = "Scriptable Objects" };
         
         InspectorElement.FillDefaultInspector(foldout, serializedObject, this);
         
