@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PlasticGui.Configuration.CloudEdition.Welcome;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -11,77 +12,68 @@ using Variables;
 public class ShipConstructorWindow : EditorWindow
 {
 
-    public EditorManager _editorManager;    
-    
     public VisualTreeAsset m_UXML;
     
     private VisualElement _root;
-    
-    [SerializeField] private FloatVariable _throttlePowerObject;
-    [SerializeField] private FloatVariable _rotationPowerObject;
-    [SerializeField] private IntVariable _healthObject;
 
-    private float throttlePowerSlider;
-    private float rotationPowerSlider;
-    private int healthField;
+
+    private Configuration _config;
     
+    private List<VisualElement> _changeables = null;
+
     [MenuItem("Window/Ship Constructor")]
     public static void ShowWindow()
     {
         GetWindow<ShipConstructorWindow>("Ship Constructor");
     }
-    
+
+
+    private void OnEnable()
+    {
+        _config = AssetDatabase.LoadAssetAtPath<Configuration>("Assets/Data Assets/new Configuration.asset");
+        Debug.Log(_config);
+    }
+
     private void CreateGUI()
     {
 
         _root = new VisualElement();
 
-        _editorManager = new EditorManager();
-        
         m_UXML.CloneTree(_root);
         
-        BindTree();
-        
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAA");
-
-        SerializedObject throttleObject = new SerializedObject(_throttlePowerObject); 
-        SerializedObject rotateObject = new SerializedObject(_rotationPowerObject);
-        SerializedObject healthObject = new SerializedObject(_healthObject);
-
-        // throttlePowerSlider = new Slider(0, 10f, SliderDirection.Horizontal);
-        // rotationPowerSlider = new Slider(0, 10f, SliderDirection.Horizontal);
-        // healthField = new IntegerField(50);
-        
-        
-        
-        rootVisualElement.Bind(throttleObject);
-        rootVisualElement.Bind(rotateObject);
-        rootVisualElement.Bind(healthObject);
-        
-        
         rootVisualElement.Add(_root);
+        
+        if (_changeables == null)
+        {
+            _changeables = rootVisualElement.Query(className: "BindableElement").ToList();
+        }
+
+        foreach (var changeable in _changeables)
+        {
+            Debug.Log(changeable);
+        }
+
+        BindAssets();
+        
     }
 
 
-    private void AssignValues()
+
+    private void BindAssets()
     {
-        _throttlePowerObject.SetValue(throttlePowerSlider);
-        _rotationPowerObject.SetValue(rotationPowerSlider);
-        _healthObject.SetValue(healthField);
+        foreach (var changeable in _changeables)
+        {
+            if (changeable == null) continue;
+
+            var obj = _config.FindScriptableObjects(changeable.name);
+            
+            if(obj == null) continue;
+
+            SerializedObject newSerial = new SerializedObject(obj);
+            
+            changeable.Bind(newSerial);
+
+        }
     }
     
-    void BindTree()
-    {
-        var generateButton = _root.Q<Button>("Generate");
-       generateButton.clicked += AssignValues;
-        
-        Debug.Log(generateButton.name);
-    }
-
-    private void OnGUI()
-    {
-        
-        Debug.Log("PLEASE");
-        
-    }
 }

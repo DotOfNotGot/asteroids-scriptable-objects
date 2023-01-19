@@ -1,14 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <ui:Label tabindex="-1" text="Ship Constructor" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; font-size: 24px; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&apos;); -unity-font-style: bold; -unity-text-outline-width: 0; letter-spacing: 16px; background-color: rgb(60, 37, 37); margin-bottom: 6px; padding-bottom: 10px; padding-top: 10px;" />
     <ui:Label tabindex="-1" text="Engine" display-tooltip-when-elided="true" enable-rich-text="true" style="-unity-text-align: upper-center; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&apos;); font-size: 18px; -unity-font-style: bold; padding-bottom: 5px; padding-top: 0;" />
-    <ui:Slider picking-mode="Ignore" label="Throttle Power" value="5" high-value="10" binding-path="throttlePowerSlider" show-input-field="true" style="-unity-slice-top: 0; padding-top: 5px;" />
-    <ui:Slider picking-mode="Ignore" label="Rotation Power" value="5" high-value="10" binding-path="rotationPowerSlider" show-input-field="true" style="-unity-slice-top: 0; padding-top: 0; padding-bottom: 5px;" />
+    <ui:Slider picking-mode="Ignore" label="Throttle Power" value="5" high-value="10" binding-path="_value" show-input-field="true" name="ThrottlePower" class="BindableElement" style="-unity-slice-top: 0; padding-top: 5px;" />
+    <ui:Slider picking-mode="Ignore" label="Rotation Power" value="5" high-value="10" binding-path="_value" show-input-field="true" name="RotationPower" class="BindableElement" style="-unity-slice-top: 0; padding-top: 0; padding-bottom: 5px;" />
     <ui:Label tabindex="-1" text="Hull" display-tooltip-when-elided="true" enable-rich-text="true" style="-unity-text-align: upper-center; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&apos;); font-size: 18px; -unity-font-style: bold; padding-top: 5px; padding-bottom: 5px;" />
-    <ui:IntegerField label="Health" value="50" binding-path="healthField" />
-    <ui:Button text="Generate" display-tooltip-when-elided="true" binding-path="AssignValues" name="Generate" />
-    <ui:Foldout text="Scriptable Objects" style="height: 92px;">
-        <uie:ObjectField label="Throttle Power Object" binding-path="_throttlePowerObject" />
-        <uie:ObjectField label="Rotation Power Object" binding-path="_rotationPowerObject" />
-        <uie:ObjectField label="Health Object" binding-path="_healthObject" />
-    </ui:Foldout>
+    <ui:IntegerField label="Health" value="50" binding-path="_value" name="Health" class="BindableElement" />
 </ui:UXML>
