@@ -29,13 +29,4 @@ namespace Variables
         }
     }
 
-    public class VariableBase<T> : ScriptableObject
-    {
-        
-    }
-
-    public class MyIntThingie : VariableBase<int>
-    {
-        
-    }
 }
