@@ -17,6 +17,14 @@ namespace Asteroids
         [SerializeField] private float _maxSize;
         [SerializeField] private float _minTorque;
         [SerializeField] private float _maxTorque;
+        
+        [SerializeField] private FloatVariable _minForceObject;
+        [SerializeField] private FloatVariable _maxForceObject;
+        [SerializeField] private FloatVariable _minSizeObject;
+        [SerializeField] private FloatVariable _maxSizeObject;
+        [SerializeField] private FloatVariable _minTorqueObject;
+        [SerializeField] private FloatVariable _maxTorqueObject;
+        
 
         [Header("References:")]
         [SerializeField] private Transform _shape;
@@ -81,13 +89,13 @@ namespace Asteroids
 
         private void AddForce()
         {
-            var force = Random.Range(_minForce, _maxForce);
+            var force = Random.Range(_minForceObject.Value, _maxForceObject.Value);
             _rigidbody.AddForce( _direction * force, ForceMode2D.Impulse);
         }
 
         private void AddTorque()
         {
-            var torque = Random.Range(_minTorque, _maxTorque);
+            var torque = Random.Range(_minTorqueObject.Value, _maxTorqueObject.Value);
             var roll = Random.Range(0, 2);
 
             if (roll == 0)
@@ -98,7 +106,7 @@ namespace Asteroids
 
         private void SetSize()
         {
-            var size = Random.Range(_minSize, _maxSize);
+            var size = Random.Range(_minSizeObject.Value, _maxSizeObject.Value);
             _shape.localScale = new Vector3(size, size, 0f);
         }
     }

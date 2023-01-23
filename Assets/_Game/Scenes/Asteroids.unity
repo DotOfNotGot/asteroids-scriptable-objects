@@ -280,6 +280,10 @@ MonoBehaviour:
   _maxSpawnTime: 4
   _minAmount: 1
   _maxAmount: 2
+  _minSpawnTimeObject: {fileID: 11400000, guid: 8d7c669e2e3aa0545beb1fbeff14a980, type: 2}
+  _maxSpawnTimeObject: {fileID: 11400000, guid: a48aa6414d2529749bfd98d0056c5a3f, type: 2}
+  _minAmountObject: {fileID: 11400000, guid: 0b9a190f3de2fef43a23e30fbaa14b21, type: 2}
+  _maxAmountObject: {fileID: 11400000, guid: b103c20561255d34eb02e04899a6d9cc, type: 2}
 --- !u!4 &1867257717
 Transform:
   m_ObjectHideFlags: 0

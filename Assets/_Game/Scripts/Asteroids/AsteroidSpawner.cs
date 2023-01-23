@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Variables;
 using Random = UnityEngine.Random;
 
 namespace Asteroids
@@ -11,6 +12,12 @@ namespace Asteroids
         [SerializeField] private float _maxSpawnTime;
         [SerializeField] private int _minAmount;
         [SerializeField] private int _maxAmount;
+
+        [SerializeField] private FloatVariable _minSpawnTimeObject;
+        [SerializeField] private FloatVariable _maxSpawnTimeObject;
+        [SerializeField] private IntVariable _minAmountObject;
+        [SerializeField] private IntVariable _maxAmountObject;
+        
         
         private float _timer;
         private float _nextSpawnTime;
@@ -45,7 +52,7 @@ namespace Asteroids
 
         private void UpdateNextSpawnTime()
         {
-            _nextSpawnTime = Random.Range(_minSpawnTime, _maxSpawnTime);
+            _nextSpawnTime = Random.Range(_minSpawnTimeObject.Value, _maxSpawnTimeObject.Value);
         }
 
         private void UpdateTimer()
@@ -60,7 +67,7 @@ namespace Asteroids
 
         private void Spawn()
         {
-            var amount = Random.Range(_minAmount, _maxAmount + 1);
+            var amount = Random.Range(_minAmountObject.Value, _maxAmountObject.Value + 1);
             
             for (var i = 0; i < amount; i++)
             {

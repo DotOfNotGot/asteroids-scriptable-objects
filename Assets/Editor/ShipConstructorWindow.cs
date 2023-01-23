@@ -21,10 +21,10 @@ public class ShipConstructorWindow : EditorWindow
     
     private List<VisualElement> _changeables = null;
 
-    [MenuItem("Window/Ship Constructor")]
+    [MenuItem("CustomTools/Game Configurator")]
     public static void ShowWindow()
     {
-        GetWindow<ShipConstructorWindow>("Ship Constructor");
+        GetWindow<ShipConstructorWindow>("Game Configurator");
     }
 
 
